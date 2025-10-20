@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yavor Tech Services | Services Informatiques</title>
+  <meta name="description" content="Services informatiques personnalisés : montage PC, support technique, réseaux, développement web. Basé à Genève.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --primary: #007bff;
+      --primary-dark: #0056b3;
+      --gray-light: #f8f9fa;
+      --gray: #dee2e6;
+      --gray-dark: #343a40;
+      --white: #ffffff;
+      --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--gray-light);
+      color: var(--gray-dark);
+      line-height: 1.6;
+      scroll-padding-top: 80px; /* évite que les ancres aillent trop haut */
+      position: relative;
+    }
+
+    /* Navigation */
+    nav {
+      background: var(--white);
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      display: flex;
+      justify-content: center;
+      padding: 10px 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--gray-dark);
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 600;
+      padding: 10px;
+      border-radius: 4px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background-color: var(--primary);
+      color: var(--white);
+    }
+
+    /* Hero Header with background image */
+    header {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                  url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+      color: var(--white);
+      padding: 100px 20px 60px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 3em;
+      font-weight: 700;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    }
+
+    header p {
+      font-size: 1.3em;
+      margin-top: 10px;
+      color: #dbe3f0;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+    }
+
+    main {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    section {
+      margin-bottom: 60px;
+    }
+
+    h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      border-left: 5px solid var(--primary);
+      padding-left: 10px;
+      color: var(--primary-dark);
+    }
+
+    .service-item, .edu-item, form {
+      background: var(--white);
+      padding: 20px;
+      margin-bottom: 20px;
+      border-left: 5px solid var(--primary);
+      box-shadow: var(--shadow);
+      transition: transform 0.2s;
+    }
+
+    .service-item:hover, .edu-item:hover {
+      transform: translateY(-3px);
+    }
+
+    .edu-item {
+      border-left-color: #28a745;
+    }
+
+    /* Services icônes */
+    .service-item h3 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      color: var(--primary-dark);
+      font-size: 1.25em;
+    }
+
+    .skills ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .skills li {
+      background: var(--primary);
+      color: var(--white);
+      margin: 5px;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 0.95em;
+      user-select: none;
+    }
+
+    form label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 600;
+      color: var(--gray-dark);
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1em;
+      resize: vertical;
+      font-family: inherit;
+    }
+
+    form button {
+      margin-top: 20px;
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 12px 25px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+
+    form button:hover,
+    form button:focus {
+      background: var(--primary-dark);
+      outline: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: var(--gray-dark);
+      color: var(--white);
+      position: relative;
+    }
+
+    .socials a {
+      margin: 0 10px;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .socials a:hover,
+    .socials a:focus {
+      text-decoration: underline;
+      outline: none;
+    }
+
+    a {
+      color: var(--primary);
+    }
+
+    /* Bouton retour en haut */
+    #backToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      font-size: 22px;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s;
+      z-index: 1000;
+    }
+    #backToTop.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2em;
+      }
+
+      h2 {
+        font-size: 1.6em;
+      }
+
+      .skills li {
+        font-size: 0.85em;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      nav a {
+        margin: 5px 10px;
+        padding: 8px 12px;
+        font-size: 0.9em;
+      }
+
+      .service-item h3 {
+        font-size: 1.1em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#apropos" class="nav-link">À propos</a>
+    <a href="#services" class="nav-link">Services</a>
+    <a href="#competences" class="nav-link">Compétences</a>
+    <a href="#formation" class="nav-link">Formation</a>
+    <a href="#contact" class="nav-link">Contact</a>
+  </nav>
+
+  <header role="banner">
+    <h1>Yavor Tech Services</h1>
+    <p>Solutions informatiques pour particuliers & entreprises</p>
+  </header>
+
+  <main role="main">
+    <section id="apropos">
+      <h2>À propos</h2>
+      <p>Yavor Tech Services propose des prestations informatiques fiables et personnalisées. Grâce à ma formation de <strong>Technicien en Informatique certifié à l'IFAGE (Genève)</strong>, j’interviens dans les domaines du montage PC, des réseaux, du support technique et de la configuration système. Mon objectif est de vous fournir un service professionnel, rapide et efficace.</p>
+    </section>
+
+    <section class="services" id="services">
+      <h2>Nos services</h2>
+
+      <article class="service-item">
+        <h3><i class="fa-solid fa-computer"></i> Montage PC sur mesure</h3>
+        <p>Assemblage de configurations adaptées à vos besoins (gaming, bureautique, professionnel). Conseil, installation complète et tests de performance.</p>
+      </article>
+
+      <article class="service-item">
+        <h3><i class="fa-solid fa-microchip"></i> Mise à jour de BIOS</h3>
+        <p>Mise à jour sécurisée du BIOS/UEFI pour garantir la compatibilité des composants et améliorer la stabilité de votre système.</p>
+      </article>
+
+      <article class="service-item">
+        <h3><i class="fa-solid fa-code"></i> Développement Web (basique)</h3>
+        <p>Création de pages HTML/CSS simples pour portfolio, présentation ou site vitrine.</p>
+      </article>
+
+      <article class="service-item">
+        <h3><i class="fa-solid fa-headset"></i> Support technique</h3>
+        <p>Résolution de pannes, installation de logiciels, configuration d’équipements et dépannage informatique à distance ou sur place.</p>
+      </article>
+
+      <article class="service-item">
+        <h3><i class="fa-solid fa-network-wired"></i> Configuration Réseau</h3>
+        <p>Mise en place de réseaux locaux, configuration de routeurs et équipements Cisco de base.</p>
+      </article>
+    </section>
+
+    <section class="skills" id="competences">
+      <h2>Compétences</h2>
+      <ul>
+        <li>Montage et maintenance PC</li>
+        <li>Installation Windows 10 / Windows Server</li>
+        <li>Configuration réseau (Cisco, LAN)</li>
+        <li>Virtualisation (VirtualBox / VMware)</li>
+        <li>Dépannage matériel et logiciel</li>
+        <li>Support utilisateur</li>
+        <li>Sauvegarde et restauration</li>
+        <li>Outils bureautiques</li>
+        <li>Création de site web (HTML / CSS)</li>
+      </ul>
+    </section>
+
+    <section class="education" id="formation">
+      <h2>Formation</h2>
+      <div class="edu-item">
+        <h3>Certificat de Technicien en Informatique</h3>
+        <p><strong>Organisme :</strong> IFAGE – Institut de Formation des Adultes, Genève</p>
+        <p><strong>Compétences acquises :</strong> Réseaux (Cisco), systèmes Windows 10 & Server, virtualisation, support technique, dépannage, création de sites web HTML/CSS.</p>
+        <p><strong>Durée :</strong> 124 périodes (~16 semaines)</p>
+        <p><a href="https://www.ifage.ch/formation/tic/hardware-systemes/certificat-de-technicien-en-informatique/" target="_blank" rel="noopener">Voir la formation sur le site de l’IFAGE</a></p>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <h2>Contact</h2>
+      <form action="https://formspree.io/f/mgedbygo" method="POST" novalidate>
+        <label for="nom">Votre nom</label>
+        <input type="text" id="nom" name="nom" placeholder="Votre nom" required />
+
+        <label for="email">Votre email</label>
+        <input type="email" id="email" name="email" placeholder="Votre email" required />
+
+        <label for="message">Votre message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Votre message" required></textarea>
+
+        <button type="submit">Envoyer</button>
+      </form>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <p>© 2025 Yavor Tech Services</p>
+    <div class="socials">
+      <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i> LinkedIn</a> |
+      <a href="#" aria-label="GitHub"><i class="fab fa-github"></i> GitHub</a> |
+      <a href="mailto:contact@yavor-tech.com" aria-label="Envoyer un email">Email</a>
+    </div>
+  </footer>
+
+  <button id="backToTop" aria-label="Retour en haut"><i class="fa fa-chevron-up"></i></button>
+
+  <script>
+    // Mise à jour dynamique du lien actif dans la nav selon le scroll
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('nav a');
+
+    function onScroll() {
+      const scrollPos = window.scrollY + 90; // ajustement pour sticky nav hauteur
+      sections.forEach(section => {
+        if(scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + section.id) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+
+      // Afficher bouton retour en haut si on descend de 300px
+      const backToTop = document.getElementById('backToTop');
+      if(window.scrollY > 300) {
+        backToTop.classList.add('show');
+      } else {
+        backToTop.classList.remove('show');
+      }
+    }
+
+    window.addEventListener('scroll', onScroll);
+
+    // Scroll vers le haut au clic sur le bouton
+    document.getElementById('backToTop').addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Gestion du formulaire avec un message simple (optionnel)
+    const form = document.querySelector('form');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      // Envoi via Formspree, simple submit
+      const formData = new FormData(form);
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          alert('Merci pour votre message, je vous recontacterai rapidement.');
+          form.reset();
+        } else {
+          alert('Une erreur est survenue, veuillez réessayer.');
+        }
+      }).catch(() => {
+        alert('Une erreur réseau est survenue, veuillez réessayer.');
+      });
+    });
+  </script>
+</body>
+</html>
